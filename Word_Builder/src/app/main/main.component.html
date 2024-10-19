@@ -1,0 +1,78 @@
+<h1 style="text-align: center; color: beige;">Welcome to Word Builder</h1>
+<!-- Application Container -->
+<div id="app-container">
+<!-- Progress Bar Timer -->
+<div class="progress-bar-container">
+<div class="progress-bar" id="progress-bar">
+<span id="timer-text">00:00</span> <!-- Placeholder for countdown -->
+</div>
+</div>
+<img src="media/plus.png" alt="Plus Icon" id="plus-button" style="cursor: pointer;" />
+<div id="score">
+<img src="media/coin.png" alt="Gold Coin" id="coin-icon">
+<span id="coin-count" style="color: gold;">0</span>
+</div>
+<!-- Username element -->
+<div id="username"></div>
+<div id="keyword-input-container">
+<input type="text" id="keyword-input" placeholder="Enter a word..." />
+<button id="submit-button" (click)="onSubmitWord()">Go</button>
+</div>
+<div class="image-container">
+<img src="media/help.jpg" alt="Help Image" class="hover-image">
+<div class="tooltip">
+<ul style="list-style-type:square; font-weight: bold; color: rgb(136, 65, 15);">
+<li>Choose difficulty.</li>
+<li>View the given word.</li>
+<li>Form shorter words</li>
+<li>Earn gold coins!!</li>
+</ul>
+</div>
+</div>
+<div id="generated-word" class="generated-word">
+<!-- The generated word will be inserted here -->
+</div>
+<div id="word-meaning" class="word-meaning">
+<!-- The word meaning will be inserted here -->
+</div>
+<div id="difficulty-buttons">
+<button class="difficulty-button" data-level="easy" (click)="setDifficulty('easy')">Easy</button>
+<button class="difficulty-button" data-level="medium" (click)="setDifficulty('medium')">Medium</button>
+<button class="difficulty-button" data-level="hard" (click)="setDifficulty('hard')">Hard</button>
+</div>
+<canvas id="game-canvas" width="150" height="300"></canvas>
+<audio id="click-sound" src="media/clicks.mp3" preload="auto"></audio>
+<audio id="correct-sound" src="media/correct_sound.mp3" preload="auto"></audio>
+<audio id="wrong-sound" src="media/wrong_sound.mp3" preload="auto"></audio>
+</div>
+<!-- Popup Modal for username-->
+<div id="username-modal" class="modal">
+<div class="modal-content">
+<span id="close-button" class="close-button">&times;</span>
+<h2>Please enter your name:</h2>
+<input type="text" id="username-input">
+<button id="submit-username">Submit</button>
+</div>
+</div>
+<!-- Popup Modal for Time's Up -->
+<div id="times-up-modal" class="modal">
+<div class="times-up-modal-content">
+<span id="close-times-up-button" class="close-button">&times;</span>
+<h2>Time's Up!</h2>
+<h4>Congratulations!!! Well Played!!</h4>
+<div id="final-score">
+<img src="media/coin.png" alt="Gold Coin" id="coin-icon">
+<span id="final-coin-count" style="color: gold; font-weight:700; font-size: 24px; position: relative; top: -20px;">0</span>
+</div>
+<button id="continue-button" style="background-color: rgb(199, 63, 63);">Continue</button>
+</div>
+</div>
+<!-- Custom Alert Modal -->
+<div id="alert-modal" class="modal">
+<div class="modal-content">
+<span id="close-alert-button" class="close-button">&times;</span>
+<h2 id="alert-title"></h2>
+<p id="alert-message"></p>
+<button id="confirm-alert-button">OK</button>
+</div>
+</div>
